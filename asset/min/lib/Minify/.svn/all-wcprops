@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify
+END
+ImportProcessor.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/ImportProcessor.php
+END
+Lines.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/Lines.php
+END
+Build.php
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/Build.php
+END
+Logger.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/Logger.php
+END
+CommentPreserver.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/CommentPreserver.php
+END
+DebugDetector.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/DebugDetector.php
+END
+Source.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/Source.php
+END
+YUICompressor.php
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/YUICompressor.php
+END
+HTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/HTML.php
+END
+Packer.php
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/Packer.php
+END
+CSS.php
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/seviyeeditor/!svn/ver/10/asset/min/lib/Minify/CSS.php
+END

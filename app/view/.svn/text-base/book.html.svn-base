@@ -1,0 +1,86 @@
+<div ng-include="'/app/view/resource/header.html'"></div>
+<div class="container" ng-controller="PageCtrl">
+    <div class="row">
+        <div id="item-panel" class="span3" data-spy="affix" data-offset-top="60">
+            <div class="well sidebar-nav">
+                <ul id="item-create" class="nav nav-list">
+                    <li class="nav-header">Materyaller</li>
+                    <li class="type" data-type="image"><a href="#">Resim</a></li>
+                    <li class="type" data-type="flash"><a href="#">Flash</a></li>
+                    <li class="type" data-type="video"><a href="#">Video</a></li>
+                    <li class="type" data-type="audio"><a href="#">Audio</a></li>
+                    <li class="type" data-type="link"><a href="#">Link</a></li>
+                </ul>
+            </div>
+            <div class="well" id="book-pages">
+                <div class="page" ng-repeat="n in bookPageRange">
+                    <img class="{{n == page && 'active' || ''}}" ng-click="go(n, token)" src="{{pageUrl(bookID, n, '220', token)}}">
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <div id="editor-panel" class="span9 pull-right">
+            <div id="page-controller" class="clearfix">
+                <div class="pull-left"><h4>{{bookTitle}}</h4></div>
+                <div class="pull-right">
+                    <button id="page-prev" class="btn btn-primary" ng-click="prev(token)" disabled><i class="icon-backward icon-white"></i></button>
+                    <input id="page-value" type="text" value="{{page}}" disabled>
+                    <button id="page-next" class="btn btn-primary" ng-click="next(token)"><i class="icon-forward icon-white"></i></button>
+                </div>
+            </div>
+            <div id="editor-wrapper" class="{{isLoading == true && 'loader' || ''}}">
+                <div id="{{isLoading == true && 'loader' || 'editor-bg'}}">
+                    <img src="{{isLoading == true && '/asset/img/loading.gif' || pageUrl(bookID, page, width, token) }}"> {{isLoading == true && 'Sayfa yükleniyor! Lütfen bekleyin...' || ''}}
+                </div>
+                <div id="editor">
+                    <div id="editor-holder">
+                        <div ng-repeat="item in items" class="item{{item.unlocked == true && ' unlocked' || ''}}" data-type="{{item.type}}" data-id="{{item.ID}}" data-index="{{$index}}" style=" left: {{item.luX}}px; top: {{item.luY}}px; width: {{item.width}}px; height: {{item.height}}px; z-index: {{item.zIndex}};">
+                            <div class="item-holder">
+                                <div class="item-buttons">
+                                    <button class="btn btn-warning btn-mini lock" ng-click="unlock($index)">
+                                        <i class="icon-lock icon-white"></i>
+                                    </button>
+                                    <button class="btn btn-success btn-mini unlock" ng-click="lock($index)">
+                                        <i class="icon-unlock icon-white"></i>
+                                    </button>
+                                    <button class="btn btn-primary btn-mini edit" ng-click="edit($index)">
+                                        <i class="icon-edit icon-white"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-mini delete" ng-click="remove($index)">
+                                        <i class="icon-remove icon-white"></i>
+                                    </button>
+                                </div>
+                                <div class="img" style=" left: {{item.imageLuX}}px; top: {{item.imageLuY}}px; width: {{item.imageWidth}}px; height: {{item.imageHeight}}px;">
+                                    <img src="/asset/img/icon/{{item.imageFilename}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="item-search" ng-controller="ItemCtrl" style="display: none;">
+    <div id="search" class="row-fluid">
+        <input type="text" ng-model="search.title" class="span4" placeholder="Materyal adı ile ara">
+        <div class="span8"><h4>Materyaller</h4></div>
+    </div>
+    <div class="row-fluid">
+        <div id="classes" class="span2">
+            <ul>
+                <li ng-repeat="c in classes" class="{{classID == c && ' active' || ''}}" data-class-id="{{c}}" ng-click="setClass(c)">{{c}}. Sınıf</li>
+            </ul>
+        </div>
+        <div id="courses" class="span2">
+            <ul>
+                <li ng-repeat="course in courses" class="{{courseID == course.ID && ' active' || ''}}" data-course-id="{{course.ID}}" ng-click="setCourse(course.ID)">{{course.title}}</li>
+            </ul>
+        </div>
+        <div id="items" class="span8">
+            <ul>
+                <li ng-repeat="item in items | filter:search | orderBy:'title'" class="{{itemID == item.ID && ' active' || ''}}" data-item-id="{{item.ID}}" data-class-id="{{item.classID}}" data-course-id="{{item.courseID}}" ng-click="setItem(item.ID)">{{item.title}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div ng-include="'/app/view/resource/header.html'"></div>
+<div class="container" ng-controller="BooksCtrl">
+    <div class="row">
+        <div class="span4" ng-repeat="book in books">
+            <div class="well well-small">
+                <a href="/kitap/{{book.ID}}">
+                    <img src="http://api.linden.pro/book-cover/{{book.ID}}" style="width: 292px; height: 396px;">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
